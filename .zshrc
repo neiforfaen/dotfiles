@@ -78,3 +78,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm setup end
+
+# Add RVM to PATH for scripting.
+export PATH="$PATH:$HOME/.rvm/bin"
