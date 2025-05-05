@@ -3,6 +3,10 @@
 # set current file directory
 SCRIPT_DIR=$(dirname "$0")
 
+# get name and email for git config
+read -p "Enter your name for git config: " GIT_NAME
+read -p "Enter your email for git config: " GIT_EMAIL
+
 # set up OhMyZsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Oh My Zsh not found. Installing..."
@@ -32,3 +36,17 @@ cp -f "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
 sed -i '' '/^\s*#/d;/^\s*$/d' "$HOME"/.zshrc
 
 echo "Zsh config installed! Reload with 'source ~/.zshrc' or '. ~/.zshrc'"
+
+# create a new .gitconfig file
+echo "Creating new .gitconfig file..."
+rm -rf "$HOME/.gitconfig"
+touch "$HOME/.gitconfig"
+
+# copy config file to ~/.gitconfig
+echo "Copying config file to ~/.gitconfig..."
+cp -f "$SCRIPT_DIR/.gitconfig" "$HOME/.gitconfig"
+
+# copy name and email to .gitconfig
+echo "Copying name and email to .gitconfig..."
+sed -i '' "s/<NAME>/$GIT_NAME/g" "$HOME"/.gitconfig
+sed -i '' "s/<EMAIL>/$GIT_EMAIL/g" "$HOME"/.gitconfig
