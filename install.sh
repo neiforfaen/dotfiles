@@ -50,3 +50,16 @@ cp -f "$SCRIPT_DIR/.gitconfig" "$HOME/.gitconfig"
 echo "Copying name and email to .gitconfig..."
 sed -i '' "s/<NAME>/$GIT_NAME/g" "$HOME"/.gitconfig
 sed -i '' "s/<EMAIL>/$GIT_EMAIL/g" "$HOME"/.gitconfig
+
+# delete nvim config
+if [ -d "$HOME/.config/nvim" ]; then
+  echo "Deleting existing nvim config..."
+  rm -rf "$HOME/.config/nvim"
+fi
+
+# create nvim config directory
+mkdir -p "$HOME/.config/nvim"
+
+# copy nvim config
+echo "Copying nvim config..."
+cp -rf "$SCRIPT_DIR/nvim/." "$HOME/.config/nvim"
