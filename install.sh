@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# set current file directory
+SCRIPT_DIR=$(dirname "$0")
+
 # set up OhMyZsh
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
   echo "Oh My Zsh not found. Installing..."
@@ -23,7 +26,7 @@ touch "$HOME/.zshrc"
 
 # copy config file to ~/.zshrc
 echo "Copying config file to ~/.zshrc..."
-cp -f ./zshrc "$HOME/.zshrc"
+cp -f "$SCRIPT_DIR/.zshrc" "$HOME/.zshrc"
 
 # cleanup comments and whitespace
 sed -i '' '/^\s*#/d;/^\s*$/d' "$HOME"/.zshrc
