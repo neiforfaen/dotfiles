@@ -1,0 +1,12 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+[
+  {
+    "bindings": {
+      "shift shift": "file_finder::Toggle",
+      "cmd-1": "workspace::ToggleRightDock"
+    }
+  }
+]

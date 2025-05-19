@@ -51,15 +51,28 @@ echo "Copying name and email to .gitconfig..."
 sed -i '' "s/<NAME>/$GIT_NAME/g" "$HOME"/.gitconfig
 sed -i '' "s/<EMAIL>/$GIT_EMAIL/g" "$HOME"/.gitconfig
 
-# delete nvim config
-if [ -d "$HOME/.config/nvim" ]; then
-  echo "Deleting existing nvim config..."
-  rm -rf "$HOME/.config/nvim"
+# delete zed config
+if [ -d "$HOME/.config/zed" ]; then
+  echo "Deleting existing zed config..."
+  rm -rf "$HOME/.config/zed"
 fi
 
-# create nvim config directory
-mkdir -p "$HOME/.config/nvim"
+# create zed config directory
+mkdir -p "$HOME/.config/zed"
 
-# copy nvim config
-echo "Copying nvim config..."
-cp -rf "$SCRIPT_DIR/nvim/." "$HOME/.config/nvim"
+# copy zed config
+echo "Copying zed config..."
+cp -rf "$SCRIPT_DIR/.config/zed/." "$HOME/.config/zed"
+
+# delete karabiner config
+if [ -d "$HOME/.config/karabiner" ]; then
+    echo "Deleting existing karabiner config..."
+    rm -rf "$HOME/.config/karabiner"
+fi
+
+# create karabiner config directory
+mkdir -p "$HOME/.config/karabiner"
+
+# copy karabiner config
+echo "Copying zed config..."
+cp -rf "$SCRIPT_DIR/.config/karabiner/." "$HOME/.config/karabiner"
