@@ -13,7 +13,7 @@
   "theme": {
     "mode": "system",
     "light": "One Light",
-    "dark": "Kanagawa Lotus"
+    "dark": "Kanagawa Dragon"
   },
   "toolbar": {
     "agent_review": false
@@ -149,6 +149,13 @@
       "code_actions_on_format": {
         "source.fixAll.stylelint": true
       }
+    }
+  },
+
+  // Terminal
+  "terminal": {
+    "shell": {
+      "program": "zsh"
     }
   }
 }
