@@ -33,7 +33,7 @@ function gcp() {
     COMMIT_MSG=$*
     FORMATTED_ISSUE="$COMMIT_TYPE: $COMMIT_MSG"
     git add -p
-    git commit -m "$FORMATTED_ISSUE" -m "Issue: SUBS-$ISSUE_NUM"
+    git commit -m "$FORMATTED_ISSUE" -m "issue: SUBS-$ISSUE_NUM"
     git push
 }
 
