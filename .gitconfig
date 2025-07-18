@@ -1,8 +1,10 @@
 # This is Git's per-user configuration file.
 [user]
-	name = <NAME>
-	email = <EMAIL>
-[push]
-	autoSetupRemote = true
+	name = Kaiden Riley
+	email = kaiden.riley@pleo.io
 [pull]
 	rebase = false
+[init]
+	defaultbranch = main
+[push]
+	autoSetupRemote = true
