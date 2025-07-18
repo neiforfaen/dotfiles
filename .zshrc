@@ -25,16 +25,15 @@ plugins=(
 # Wraps the issue number in braces and capitalizes it, then runs git add -p
 # and git commit with the formatted issue number and commit message.
 # git push is run automatically after the commit, but can be removed if not needed.
-function git_commit_push() {
-    ISSUE_NUM=$1
+function gcp() {
+    COMMIT_TYPE=$1
+    ISSUE_NUM=$2
+    shift
     shift
     COMMIT_MSG=$*
-    FORMATTED_ISSUE="[$(echo "$ISSUE_NUM" | tr '[:lower:]' '[:upper:]')] $COMMIT_MSG"
-
+    FORMATTED_ISSUE="$COMMIT_TYPE: $COMMIT_MSG"
     git add -p
-
-    git commit -m "$FORMATTED_ISSUE"
-
+    git commit -m "$FORMATTED_ISSUE" -m "Issue: SUBS-$ISSUE_NUM"
     git push
 }
 
@@ -56,7 +55,7 @@ alias gco="git checkout"
 alias gcb="git checkout -b"
 
 # git commit and push (from function git_commit_push)
-alias gcp="git_commit_push"
+alias gcp="gcp"
 
 # EXPORTS
 
